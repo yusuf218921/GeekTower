@@ -1,5 +1,6 @@
-import {StyleSheet} from 'react-native';
-import {COLORS, SIZES} from '../../constants';
+import { StyleSheet } from 'react-native';
+import { COLORS, SIZES } from '../../constants';
+import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 
 export const styles = StyleSheet.create({
 	area: {
@@ -19,36 +20,37 @@ export const styles = StyleSheet.create({
 		gap: 10
 	},
 	logoWrapper: {
-		width: 256,
-		height: 128,
+		width: SIZES.width / 2,
+		height: SIZES.width / 4,
 		overflow: 'hidden',
 		justifyContent: 'center',
 		alignItems: 'center'
 	},
 	logo: {
 		resizeMode: 'contain',
-		width: 500,
-		height: 250
+		width: SIZES.width,
+		height: SIZES.width / 2
 	},
 	title: {
-		fontSize: 21,
+		fontSize: hp(3),
 		fontFamily: 'roboto',
 		fontWeight: 700,
 		color: COLORS.white2
 	},
 	subtitle: {
-		fontSize: 16,
+		fontSize: hp(2.5),
 		fontFamily: 'roboto',
 		fontWeight: 500,
 		color: COLORS.white2,
-		maxWidth: '80%'
+		maxWidth: '80%',
+		textAlign: 'justify'
 	},
 	main: {
 		flex: 2,
 		width: '100%',
 		justifyContent: 'center',
 		alignItems: 'center',
-		gap: 30
+		gap: hp(2.5)
 	},
 	footer: {
 		flex: 1,
@@ -57,7 +59,7 @@ export const styles = StyleSheet.create({
 		alignItems: 'center'
 	},
 	bottomText: {
-		fontSize: 14,
+		fontSize: hp(2),
 		fontFamily: 'roboto',
 		fontWeight: 500,
 		color: COLORS.white2

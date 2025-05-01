@@ -38,13 +38,15 @@
 
 ## 5. Backend ve Bildirim Kütüphaneleri
 
-| Kütüphane                        | Açıklama                                                         |
-| :------------------------------- | :--------------------------------------------------------------- |
-| @supabase/supabase-js            | Supabase istemcisi – auth, veritabanı ve storage işlemleri için. |
-| @react-native-firebase/app       | Sadece Firebase Cloud Messaging için temel firebase modülü.      |
-| @react-native-firebase/messaging | Push bildirimleri (arkadaşlık isteği, öneri bildirimi vs.) için. |
+| Kütüphane                        | Açıklama                                                                  |
+| :------------------------------- | :------------------------------------------------------------------------ |
+| @react-native-firebase/app       | Firebase konfigürasyonunun temel modülü.                                  |
+| @react-native-firebase/auth      | Firebase kimlik doğrulama (E-mail/Şifre, Google, Apple girişleri).        |
+| @react-native-firebase/firestore | Kullanıcı, arşiv, sohbet, arkadaşlık gibi verilerin tutulduğu veritabanı. |
+| @react-native-firebase/storage   | Kullanıcı avatarları gibi medya dosyaları için.                           |
+| @react-native-firebase/messaging | Push bildirimleri (arkadaşlık isteği, öneri bildirimi vs.) için.          |
 
-> **Not:** Firebase yalnızca **bildirim (FCM)** altyapısı için kullanılacaktır. Kimlik doğrulama, veritabanı ve medya yükleme işlemleri tamamen **Supabase** üzerinden yürütülecektir.
+> **Not:** Tüm backend işlemleri artık Firebase ile yönetilecektir. Supabase tamamen kaldırılmıştır.
 
 ## 6. Ekstra Faydalı Araçlar (Opsiyonel Ama Tavsiye Edilenler)
 
@@ -64,9 +66,7 @@
 - **State/Storage:** Async Storage, Context API.
 - **UI:** Paper, Vector Icons, SVG.
 - **Animation:** Reanimated + Redash + Moti.
-- **Backend:** Firebase App, Auth, Firestore, Messaging (+ Storage opsiyonel).
+- **Backend:** Firebase Auth, Firestore, Storage, Messaging.
 - **Opsiyonel Destek:** react-hook-form, yup, toast-message.
 
 ---
-
-> 📚 Bu dosya GeekTower projesinin teknik MVP kütüphane planlamasını içermektedir. Geliştirme sürecinde yeni ihtiyaçlar ortaya çıktıkça ayrı "Feature Dökümanları" ile genişletilecektir.

@@ -1,4 +1,4 @@
-package com.geektower
+package com.geektower.app
 
 import com.facebook.react.ReactActivity
 import com.facebook.react.ReactActivityDelegate

@@ -1,21 +1,20 @@
 // src/navigation/RootNavigator.tsx
-import {NavigationContainer} from '@react-navigation/native';
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import React from 'react';
-import WelcomeScreen from '../screens/welcome/index';
-
-export type RootStackParamList = {
-	Welcome: undefined;
-};
-
-const Stack = createNativeStackNavigator<RootStackParamList>();
+import { NavigationContainer } from '@react-navigation/native';
+import React, { useEffect, useState } from 'react';
+import AuthNavigator from './AuthNavigator';
+import { initAuthListener, useAuthStore } from '../lib/stores/authStore';
 
 export default function RootNavigator() {
+	const [checked, setChecked] = useState(false);
+	const isAuth = useAuthStore(s => s.isAuthenticated);
+
+	useEffect(() => {
+		initAuthListener();
+		setChecked(true);
+	}, []);
 	return (
 		<NavigationContainer>
-			<Stack.Navigator screenOptions={{headerShown: false}}>
-				<Stack.Screen name='Welcome' component={WelcomeScreen} />
-			</Stack.Navigator>
+			<AuthNavigator />
 		</NavigationContainer>
 	);
 }

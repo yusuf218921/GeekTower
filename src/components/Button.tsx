@@ -1,6 +1,6 @@
-import {StyleProp, StyleSheet, Text, TextStyle, TouchableOpacity, TouchableOpacityProps, View, ViewStyle} from 'react-native';
-import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
-import {COLORS} from '../constants';
+import { StyleProp, StyleSheet, Text, TextStyle, TouchableOpacity, TouchableOpacityProps, View, ViewStyle } from 'react-native';
+import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
+import { COLORS } from '../constants';
 
 interface ButtonProps extends TouchableOpacityProps {
 	title: string;
@@ -9,14 +9,14 @@ interface ButtonProps extends TouchableOpacityProps {
 	textStyle?: StyleProp<TextStyle>;
 }
 
-const Button: React.FC<ButtonProps> = ({title, filled, buttonStyle, textStyle, onPress, ...res}) => {
+const Button: React.FC<ButtonProps> = ({ title, filled, buttonStyle, textStyle, onPress, ...res }) => {
 	return (
 		<View style={[styles.container, styles.shadow]}>
 			<TouchableOpacity
-				style={[styles.buttonStyle, buttonStyle, {backgroundColor: filled ? COLORS.secondary : COLORS.white}]}
+				style={[styles.buttonStyle, buttonStyle, { backgroundColor: filled ? COLORS.secondary : COLORS.white }]}
 				onPress={onPress}
 				{...res}>
-				<Text style={[styles.textStyle, textStyle, {color: filled ? COLORS.dark : COLORS.primary}]}>{title}</Text>
+				<Text style={[styles.textStyle, textStyle, { color: filled ? COLORS.dark : COLORS.primary }]}>{title}</Text>
 			</TouchableOpacity>
 		</View>
 	);
@@ -35,13 +35,13 @@ const styles = StyleSheet.create({
 	},
 	textStyle: {
 		textAlign: 'center',
-		fontSize: 16,
+		fontSize: hp(2),
 		fontFamily: 'roboto',
 		fontWeight: 700
 	},
 	shadow: {
 		shadowColor: COLORS.primary,
-		shadowOffset: {width: 0, height: 10},
+		shadowOffset: { width: 0, height: 10 },
 		shadowOpacity: 0.3,
 		shadowRadius: 10,
 		elevation: 8

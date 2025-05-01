@@ -12,13 +12,18 @@ const Root = () => {
 
 	useEffect(() => {
 		init();
+		setInitialized(true);
 	}, []);
 
-	return (
-		<GestureHandlerRootView>
-			<RootNavigator />
-		</GestureHandlerRootView>
-	);
+	if (!initialized) {
+		return;
+	} else {
+		return (
+			<GestureHandlerRootView>
+				<RootNavigator />
+			</GestureHandlerRootView>
+		);
+	}
 };
 
 export default Root;
