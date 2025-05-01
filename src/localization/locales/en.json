@@ -1,4 +1,10 @@
 {
+	"error": {
+		"emailNotVerified": "Please verify your email address.",
+		"userNotFound": "User not found.",
+		"firestore": "A server error occurred. Please try again later.",
+		"unknown": "An unexpected error occurred. Please try again."
+	},
 	"welcome": {
 		"title": "Welcome to GeekTower!",
 		"subtitle": "Archive what you’ve watched, level up, get recommendations. Turn your tastes into a tower, your journey starts right here!",

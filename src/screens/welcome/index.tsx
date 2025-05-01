@@ -1,5 +1,5 @@
 // src/screens/WelcomeScreen.tsx
-import React from 'react';
+import React, { useCallback, useEffect } from 'react';
 import { Image, StyleSheet, Text, View } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import { SafeAreaView } from 'react-native-safe-area-context';
@@ -10,20 +10,27 @@ import Button from '../../components/Button';
 import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { AuthStackParamList } from '../../navigation/types';
+import log from '../../utils/logger';
 
 type WelcomeNavProp = NativeStackNavigationProp<AuthStackParamList, 'Welcome'>;
 
-export default function WelcomeScreen() {
+const WelcomeScreen = () => {
 	const { t } = useTranslation();
 	const navigation = useNavigation<WelcomeNavProp>();
 
-	const handleLoginButton = () => {
-		navigation.navigate('Login');
-	};
+	useEffect(() => {
+		log.info('Welcome Sayfası Açıldı');
+	}, []);
 
-	const handleRegisterButton = () => {
+	const handleLoginButton = useCallback(() => {
+		log.info('Login Sayfasına Geçiliyor.');
+		navigation.navigate('Login');
+	}, [navigation]);
+
+	const handleRegisterButton = useCallback(() => {
+		log.info('Register Sayfasına Geçiliyor');
 		navigation.navigate('Register');
-	};
+	}, [navigation]);
 
 	return (
 		<SafeAreaView style={styles.area}>
@@ -45,4 +52,6 @@ export default function WelcomeScreen() {
 			</ScrollView>
 		</SafeAreaView>
 	);
-}
+};
+
+export default React.memo(WelcomeScreen);

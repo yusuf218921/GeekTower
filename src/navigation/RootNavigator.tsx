@@ -12,6 +12,8 @@ export default function RootNavigator() {
 		initAuthListener();
 		setChecked(true);
 	}, []);
+
+	if (!checked) return;
 	return (
 		<NavigationContainer>
 			<AuthNavigator />
