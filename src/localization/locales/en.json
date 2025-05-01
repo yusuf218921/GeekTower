@@ -1,0 +1,11 @@
+{
+	"welcome": {
+		"title": "Welcome to GeekTower!",
+		"subtitle": "Archive what you’ve watched, level up, get recommendations. Turn your tastes into a tower, your journey starts right here!",
+		"button": {
+			"login": "Enter the Tower",
+			"register": "Begin Your Journey"
+		},
+		"bottom": "© 2025 GeekTower · All rights reserved."
+	}
+}
