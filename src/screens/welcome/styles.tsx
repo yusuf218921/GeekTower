@@ -11,7 +11,7 @@ export const styles = StyleSheet.create({
 		flex: 1,
 		justifyContent: 'center',
 		alignItems: 'center',
-		padding: 15
+		padding: 16
 	},
 	header: {
 		flex: 2,

@@ -26,12 +26,13 @@ export default Button;
 
 const styles = StyleSheet.create({
 	container: {
-		width: '90%'
+		width: '100%',
+		marginVertical: hp(1)
 	},
 	buttonStyle: {
 		height: hp(7),
 		justifyContent: 'center',
-		borderRadius: 20
+		borderRadius: wp(1.5)
 	},
 	textStyle: {
 		textAlign: 'center',

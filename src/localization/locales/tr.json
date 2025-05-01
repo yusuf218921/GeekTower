@@ -3,7 +3,8 @@
 		"emailNotVerified": "Lütfen e-posta adresinizi onaylayın.",
 		"userNotFound": "Böyle bir kullanıcı bulunamadı.",
 		"firestore": "Sunucu tarafında bir hata oluştu. Lütfen daha sonra tekrar deneyin.",
-		"unknown": "Beklenmeyen bir hata oluştu. Lütfen tekrar deneyin."
+		"unknown": "Beklenmeyen bir hata oluştu. Lütfen tekrar deneyin.",
+		"invalidEmailFormat": "E-Posta geçerli değil."
 	},
 	"welcome": {
 		"title": "GeekTower’a Hoş Geldin!,",
@@ -13,5 +14,8 @@
 			"register": "Yolculuğa Başla"
 		},
 		"bottom": "© 2025 GeekTower · Tüm hakları saklıdır."
+	},
+	"login": {
+		"title": "Kuleye hoş geldin"
 	}
 }
