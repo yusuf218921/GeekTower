@@ -11,13 +11,12 @@ const FONT_BLURRED = hp(2);
 const FONT_FOCUSED = hp(1.6);
 
 export interface InputProps extends TextInputProps {
-	id: string;
 	errorText?: string;
-	onInputChanged: (id: string, text: string) => void;
+	onInputChanged: (text: string) => void;
 	inputStyle?: StyleProp<ViewStyle>;
 }
 
-const FormInput: FC<InputProps> = ({ id, value = '', placeholder, onInputChanged, inputStyle, errorText, ...rest }) => {
+const FormInput: FC<InputProps> = ({ value = '', placeholder, onInputChanged, inputStyle, errorText, ...rest }) => {
 	const [isFocused, setIsFocused] = useState(false);
 	const showFloating = isFocused || !!value;
 
@@ -63,7 +62,7 @@ const FormInput: FC<InputProps> = ({ id, value = '', placeholder, onInputChanged
 					style={styles.textInput}
 					onFocus={() => setIsFocused(true)}
 					onBlur={() => setIsFocused(false)}
-					onChangeText={text => onInputChanged(id, text)}
+					onChangeText={text => onInputChanged(text)}
 					{...rest}
 				/>
 			</View>

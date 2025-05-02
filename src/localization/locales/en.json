@@ -3,8 +3,9 @@
 		"emailNotVerified": "Please verify your email address.",
 		"userNotFound": "User not found.",
 		"firestore": "A server error occurred. Please try again later.",
-		"unknown": "An unexpected error occurred. Please try again.",
-		"invalidEmailFormat": "The email is not valid"
+		"unknown": "An unexpected error occurred. Please try again later.",
+		"invalidEmailFormat": "The email is not valid",
+		"emailAlreadyExist": "This email is already registered."
 	},
 	"welcome": {
 		"title": "Welcome to GeekTower!",
@@ -21,6 +22,21 @@
 		"loginButton": "Continue",
 		"bottomPrefix": "Don't have an account? ",
 		"bottomSuffix": "Sign up",
+		"orSeparator": "OR",
+		"social": {
+			"microsoft": "Continue with Microsoft",
+			"google": "Continue with Google",
+			"apple": "Continue with Apple"
+		},
+		"privacy": "Privacy Policy",
+		"terms": "Terms of Use"
+	},
+	"register": {
+		"title": "Your Journey Begins Here",
+		"emailPlaceHolder": "Email address",
+		"registerButton": "Continue",
+		"bottomPrefix": "Already have an account? ",
+		"bottomSuffix": "Sign in",
 		"orSeparator": "OR",
 		"social": {
 			"microsoft": "Continue with Microsoft",

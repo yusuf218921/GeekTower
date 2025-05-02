@@ -9,21 +9,30 @@ import FormInput from '../../components/FormInput';
 import Button from '../../components/Button';
 import SocialButton from '../../components/SocialButton';
 import { icons } from '../../constants';
+import React from 'react';
+import { useNavigation } from '@react-navigation/native';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import { AuthStackParamList } from '../../navigation/types';
+
+type LoginNavProp = NativeStackNavigationProp<AuthStackParamList, 'Login'>;
 
 const Login = () => {
 	const [email, setEmail] = useState('');
 	const [emailError, setEmailError] = useState<string>();
+	const navigation = useNavigation<LoginNavProp>();
 
-	const handleEmailInputChange = (id: string, text: string) => {
+	const handleEmailInputChange = (text: string) => {
 		setEmail(text);
 		setEmailError(undefined);
 	};
 
 	const handleLoginPress = () => {
 		log.info('Login butonuna basıldı', { email });
-		if (!email.includes('@')) {
+		const emailRegex = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
+		if (!emailRegex.test(email)) {
 			const err = t('error.invalidEmailFormat') || 'Geçersiz e-posta formatı';
 			setEmailError(err);
+			return;
 		}
 	};
 	const { t } = useTranslation();
@@ -36,7 +45,6 @@ const Login = () => {
 				<View style={styles.formContainer}>
 					<Text style={styles.title}>{t('login.title')}</Text>
 					<FormInput
-						id='email'
 						onInputChanged={handleEmailInputChange}
 						value={email}
 						placeholder={t('login.emailPlaceHolder')}
@@ -47,7 +55,7 @@ const Login = () => {
 					<Button filled title={t('login.loginButton')} onPress={handleLoginPress} />
 					<View style={styles.bottom}>
 						<Text style={styles.bottomText}>{t('login.bottomPrefix')}</Text>
-						<TouchableOpacity>
+						<TouchableOpacity onPress={() => navigation.replace('Register', { animation: 'fade_from_bottom' })}>
 							<Text style={styles.bottomLink}>{t('login.bottomSuffix')}</Text>
 						</TouchableOpacity>
 					</View>

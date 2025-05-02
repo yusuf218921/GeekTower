@@ -3,11 +3,12 @@
 		"emailNotVerified": "Lütfen e-posta adresinizi onaylayın.",
 		"userNotFound": "Böyle bir kullanıcı bulunamadı.",
 		"firestore": "Sunucu tarafında bir hata oluştu. Lütfen daha sonra tekrar deneyin.",
-		"unknown": "Beklenmeyen bir hata oluştu. Lütfen tekrar deneyin.",
-		"invalidEmailFormat": "E-Posta geçerli değil."
+		"unknown": "Bilinmeyen bir hata oluştu. Lütfen daha sonra tekrar deneyin.",
+		"invalidEmailFormat": "E-Posta geçerli değil.",
+		"emailAlreadyExist": "Bu e-posta adresi zaten kayıtlı."
 	},
 	"welcome": {
-		"title": "GeekTower’a Hoş Geldin!,",
+		"title": "GeekTower’a Hoş Geldin!",
 		"subtitle": "İzlediklerini arşivle, kat atla, öneriler al. Zevklerini kuleye dönüştür, yolculuğun tam burada başlıyor!",
 		"button": {
 			"login": "Kuleye Giriş Yap",
@@ -16,6 +17,38 @@
 		"bottom": "© 2025 GeekTower · Tüm hakları saklıdır."
 	},
 	"login": {
-		"title": "Kuleye hoş geldin"
+		"title": "Kuleye Hoş Geldin",
+		"emailPlaceHolder": "E-posta adresi",
+		"loginButton": "Devam Et",
+		"bottomPrefix": "Hesabın yok mu? ",
+		"bottomSuffix": "Kayıt Ol",
+		"orSeparator": "VEYA",
+		"social": {
+			"microsoft": "Microsoft ile devam et",
+			"google": "Google ile devam et",
+			"apple": "Apple ile devam et"
+		},
+		"privacy": "Gizlilik Politikası",
+		"terms": "Kullanım Şartları"
+	},
+	"register": {
+		"title": "Yolculuğun Burada Başlıyor",
+		"emailPlaceHolder": "E-posta adresi",
+		"registerButton": "Devam Et",
+		"bottomPrefix": "Zaten hesabın var mı? ",
+		"bottomSuffix": "Giriş Yap",
+		"orSeparator": "VEYA",
+		"social": {
+			"microsoft": "Microsoft ile devam et",
+			"google": "Google ile devam et",
+			"apple": "Apple ile devam et"
+		},
+		"privacy": "Gizlilik Politikası",
+		"terms": "Kullanım Şartları"
+	},
+	"password": {
+		"title": "Şifreni Belirle",
+		"placeHolder": "Şifre",
+		"confirmPlaceHolder": "Şifreyi Onayla"
 	}
 }

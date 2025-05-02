@@ -24,12 +24,12 @@ const WelcomeScreen = () => {
 
 	const handleLoginButton = useCallback(() => {
 		log.info('Login Sayfasına Geçiliyor.');
-		navigation.navigate('Login');
+		navigation.navigate('Login', { animation: 'slide_from_right' });
 	}, [navigation]);
 
 	const handleRegisterButton = useCallback(() => {
 		log.info('Register Sayfasına Geçiliyor');
-		navigation.navigate('Register');
+		navigation.navigate('Register', { animation: 'slide_from_right' });
 	}, [navigation]);
 
 	return (
@@ -54,4 +54,4 @@ const WelcomeScreen = () => {
 	);
 };
 
-export default React.memo(WelcomeScreen);
+export default WelcomeScreen;
