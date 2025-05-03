@@ -16,7 +16,8 @@ export default function AuthNavigator() {
 				const anim = ((route.params as any)?.animation as StackAnimationTypes) ?? 'slide_from_right';
 				return {
 					headerShown: false,
-					animation: anim
+					animation: anim,
+					detachPreviousScreen: false
 				};
 			}}>
 			<Stack.Screen name='Welcome' component={Welcome} />

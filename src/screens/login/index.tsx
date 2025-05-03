@@ -13,6 +13,8 @@ import React from 'react';
 import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { AuthStackParamList } from '../../navigation/types';
+import Header from '../../components/Header';
+import { SCREEN_ANIMATIONS } from '../../constants/theme';
 
 type LoginNavProp = NativeStackNavigationProp<AuthStackParamList, 'Login'>;
 
@@ -42,6 +44,7 @@ const Login = () => {
 	return (
 		<SafeAreaView style={styles.area}>
 			<ScrollView contentContainerStyle={styles.container} showsVerticalScrollIndicator={false}>
+				<Header onBackPress={navigation.goBack} />
 				<View style={styles.formContainer}>
 					<Text style={styles.title}>{t('login.title')}</Text>
 					<FormInput
@@ -55,7 +58,7 @@ const Login = () => {
 					<Button filled title={t('login.loginButton')} onPress={handleLoginPress} />
 					<View style={styles.bottom}>
 						<Text style={styles.bottomText}>{t('login.bottomPrefix')}</Text>
-						<TouchableOpacity onPress={() => navigation.replace('Register', { animation: 'fade_from_bottom' })}>
+						<TouchableOpacity onPress={() => navigation.replace('Register', { animation: SCREEN_ANIMATIONS.replace })}>
 							<Text style={styles.bottomLink}>{t('login.bottomSuffix')}</Text>
 						</TouchableOpacity>
 					</View>

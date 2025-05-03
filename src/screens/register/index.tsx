@@ -14,6 +14,9 @@ import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { RegisterStackParamList } from '../../navigation/types';
 import { useNavigation } from '@react-navigation/native';
 import { getUserByEmail } from '../../lib/services/userService';
+import Header from '../../components/Header';
+import { useToast } from '../../lib/contexts/ToastProvider';
+import { SCREEN_ANIMATIONS } from '../../constants/theme';
 
 type RegisterNavProp = NativeStackNavigationProp<RegisterStackParamList, 'RegisterEmail'>;
 
@@ -21,8 +24,11 @@ const Register = () => {
 	const navigation = useNavigation<RegisterNavProp>();
 	const { t } = useTranslation();
 
+	const { showToast } = useToast();
+
 	const [email, setEmail] = useState('');
 	const [emailError, setEmailError] = useState<string>();
+	const [loading, setLoading] = useState(false);
 
 	const handleEmailInputChange = (text: string) => {
 		setEmail(text);
@@ -37,18 +43,20 @@ const Register = () => {
 			setEmailError(err);
 			return;
 		}
+		setLoading(true);
 		getUserByEmail(email)
 			.then(user => {
 				if (user) {
-					setEmailError(t('error.emailAlreadyExist'));
+					showToast({ type: 'error', message: t('error.emailAlreadyExist') });
 					return;
 				} else {
 					navigation.navigate('RegisterPassword', { email });
 				}
 			})
 			.catch(err => {
-				log.error(err.message);
-			});
+				showToast({ type: 'error', message: t('error.unknown') });
+			})
+			.finally(() => setLoading(false));
 	};
 
 	useEffect(() => {
@@ -58,6 +66,7 @@ const Register = () => {
 	return (
 		<SafeAreaView style={styles.area}>
 			<ScrollView contentContainerStyle={styles.container} showsVerticalScrollIndicator={false}>
+				<Header onBackPress={navigation.goBack} />
 				<View style={styles.formContainer}>
 					<Text style={styles.title}>{t('register.title')}</Text>
 					<FormInput
@@ -68,10 +77,10 @@ const Register = () => {
 						autoCapitalize='none'
 						errorText={emailError}
 					/>
-					<Button filled title={t('register.registerButton')} onPress={handleRegisterPress} />
+					<Button filled title={t('register.registerButton')} onPress={handleRegisterPress} loading={loading} />
 					<View style={styles.bottom}>
 						<Text style={styles.bottomText}>{t('register.bottomPrefix')}</Text>
-						<TouchableOpacity onPress={() => navigation.replace('Login', { animation: 'fade_from_bottom' })}>
+						<TouchableOpacity onPress={() => navigation.replace('Login', { animation: SCREEN_ANIMATIONS.replace })}>
 							<Text style={styles.bottomLink}>{t('register.bottomSuffix')}</Text>
 						</TouchableOpacity>
 					</View>

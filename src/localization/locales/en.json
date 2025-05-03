@@ -45,5 +45,20 @@
 		},
 		"privacy": "Privacy Policy",
 		"terms": "Terms of Use"
-	}
+	},
+	"password": {
+		"title": "Create a password",
+		"placeHolder": "Create a password",
+		"confirmPlaceHolder": "Confirm your password",
+		"validation": {
+			"hasMinLength": "At least 8 characters",
+			"hasUpperCase": "At least one uppercase letter",
+			"hasLowerCase": "At least one lowercase letter",
+			"hasNumber": "At least one number",
+			"hasSpecialChar": "At least one special character",
+			"passwordsMatch": "Passwords match"
+		}
+	},
+	"button": "Continue",
+	"confirmEmailSent": "Confirmation email sent. Please check your inbox to verify your account."
 }

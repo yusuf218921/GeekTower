@@ -82,18 +82,21 @@ export const styles = StyleSheet.create({
 	formPasswordContainer: {
 		flex: 1,
 		width: '100%',
-		justifyContent: 'space-evenly',
+		justifyContent: 'space-around',
 		alignItems: 'center',
 		gap: hp(2)
 	},
-	passwordValidationContainer: {
-		flex: 1,
+	passwordButtonContainer: {
 		width: '100%',
-		justifyContent: 'center',
-		alignItems: 'center'
+		flex: 0.5,
+		justifyContent: 'center'
+	},
+	validationContainer: {
+		gap: hp(1)
 	},
 	passwordContainer: {
-		width: '100%'
+		width: '100%',
+		gap: hp(2)
 	},
 	passwordTitle: {
 		fontSize: hp(4),

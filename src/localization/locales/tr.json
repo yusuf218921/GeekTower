@@ -49,6 +49,16 @@
 	"password": {
 		"title": "Şifreni Belirle",
 		"placeHolder": "Şifre",
-		"confirmPlaceHolder": "Şifreyi Onayla"
+		"confirmPlaceHolder": "Şifreyi Onayla",
+		"validation": {
+			"hasMinLength": "En az 8 karakter",
+			"hasUpperCase": "En az bir büyük harf",
+			"hasLowerCase": "En az bir küçük harf",
+			"hasNumber": "En az bir sayı",
+			"hasSpecialChar": "En az bir özel karakter",
+			"passwordsMatch": "Şifreler eşleşiyor"
+		},
+		"button": "Devam Et",
+		"confirmEmailSent": "Onay e-postası gönderildi. Hesabınızı doğrulamak için gelen kutunuzu kontrol edin."
 	}
 }

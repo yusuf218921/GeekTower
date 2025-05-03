@@ -3,6 +3,8 @@ import RootNavigator from './navigation/RootNavigator';
 import { useEffect, useState } from 'react';
 import initializeI18Next from './localization/i18n';
 import log from './utils/logger';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
+import { ToastProvider } from './lib/contexts/ToastProvider';
 
 const Root = () => {
 	const [initialized, setInitialized] = useState(false);
@@ -23,7 +25,11 @@ const Root = () => {
 	} else {
 		return (
 			<GestureHandlerRootView>
-				<RootNavigator />
+				<ToastProvider>
+					<SafeAreaProvider>
+						<RootNavigator />
+					</SafeAreaProvider>
+				</ToastProvider>
 			</GestureHandlerRootView>
 		);
 	}

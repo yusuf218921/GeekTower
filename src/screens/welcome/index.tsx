@@ -11,6 +11,7 @@ import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { AuthStackParamList } from '../../navigation/types';
 import log from '../../utils/logger';
+import { SCREEN_ANIMATIONS } from '../../constants/theme';
 
 type WelcomeNavProp = NativeStackNavigationProp<AuthStackParamList, 'Welcome'>;
 
@@ -24,12 +25,12 @@ const WelcomeScreen = () => {
 
 	const handleLoginButton = useCallback(() => {
 		log.info('Login Sayfasına Geçiliyor.');
-		navigation.navigate('Login', { animation: 'slide_from_right' });
+		navigation.navigate('Login', { animation: SCREEN_ANIMATIONS.push });
 	}, [navigation]);
 
 	const handleRegisterButton = useCallback(() => {
 		log.info('Register Sayfasına Geçiliyor');
-		navigation.navigate('Register', { animation: 'slide_from_right' });
+		navigation.navigate('Register', { animation: SCREEN_ANIMATIONS.push });
 	}, [navigation]);
 
 	return (
