@@ -106,4 +106,6 @@ export const styles = StyleSheet.create({
 		textAlign: 'center',
 		maxWidth: wp(90)
 	}
+
+	//Profile
 });

@@ -38,7 +38,8 @@ export async function createUser(userId: string, userData: Omit<IUser, 'id' | 'c
 	try {
 		await setDoc(doc(firestore, 'users', userId), {
 			...userData,
-			createdAt: Timestamp.now()
+			createdAt: Timestamp.now(),
+			updatedAt: Timestamp.now()
 		});
 		log.info(`Kullanıcı oluşturuldu. ID: ${userId}`);
 	} catch (error) {

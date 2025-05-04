@@ -14,7 +14,7 @@ export interface IUser extends IModel {
 	// verifiedAt?: Timestamp;
 	score: number;
 	currentFloor: number;
-	title?: string;
+	title: string;
 	isProfileCompleted: boolean;
 	archiveVisibility: ArchiveVisibility;
 	role: UserRole;

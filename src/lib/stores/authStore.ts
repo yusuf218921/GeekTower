@@ -81,6 +81,7 @@ export const useAuthStore = create<AuthState>((set, get) => ({
 				score: 0,
 				currentFloor: 1,
 				role: 'user',
+				title: 'Acemi',
 				isProfileCompleted: false,
 				archiveVisibility: 'private'
 			};

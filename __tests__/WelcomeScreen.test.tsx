@@ -6,6 +6,7 @@ import { navigateMock } from '../__mocks__/@react-navigation/native';
 
 import WelcomeScreen from '../src/screens/welcome';
 import { mockChangeLanguage } from '../__mocks__/react-i18next';
+import { SCREEN_ANIMATIONS } from '../src/constants/theme';
 
 describe('WelcomeScreen', () => {
 	beforeEach(() => {
@@ -17,7 +18,7 @@ describe('WelcomeScreen', () => {
 		const { getByText } = render(<WelcomeScreen />);
 		const loginBtn = getByText('Enter the Tower');
 		fireEvent.press(loginBtn);
-		expect(navigateMock).toHaveBeenCalledWith('Login');
+		expect(navigateMock).toHaveBeenCalledWith('Login', { animation: SCREEN_ANIMATIONS.push });
 	});
 
 	it('Register butonuna basılınca Register sayfasına gider', () => {
@@ -25,7 +26,7 @@ describe('WelcomeScreen', () => {
 		const { getByText } = render(<WelcomeScreen />);
 		const regBtn = getByText('Begin Your Journey');
 		fireEvent.press(regBtn);
-		expect(navigateMock).toHaveBeenCalledWith('Register');
+		expect(navigateMock).toHaveBeenCalledWith('Register', { animation: SCREEN_ANIMATIONS.push });
 	});
 
 	it('Dil "tr" iken metinler Türkçe gösterilir', () => {
