@@ -12,6 +12,7 @@ import {
 } from 'react-native';
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 import { COLORS } from '../constants';
+import { useTheme } from 'react-native-paper';
 
 interface ButtonProps extends TouchableOpacityProps {
 	title: string;
@@ -22,17 +23,20 @@ interface ButtonProps extends TouchableOpacityProps {
 }
 
 const Button: React.FC<ButtonProps> = ({ title, filled = false, loading = false, buttonStyle, textStyle, onPress, ...rest }) => {
+	const theme = useTheme();
 	return (
 		<View style={[styles.container, styles.shadow]}>
 			<TouchableOpacity
-				style={[styles.buttonStyle, buttonStyle, { backgroundColor: filled ? COLORS.secondary : COLORS.white }]}
+				style={[styles.buttonStyle, buttonStyle, { backgroundColor: filled ? theme.colors.primary : theme.colors.secondary }]}
 				onPress={onPress}
 				disabled={loading || rest.disabled}
 				{...rest}>
 				{loading ? (
-					<ActivityIndicator size='small' color={filled ? COLORS.dark : COLORS.primary} />
+					<ActivityIndicator size='small' color={filled ? theme.colors.onPrimary : theme.colors.onSecondary} />
 				) : (
-					<Text style={[styles.textStyle, textStyle, { color: filled ? COLORS.dark : COLORS.primary }]}>{title}</Text>
+					<Text style={[styles.textStyle, textStyle, { color: filled ? theme.colors.onPrimary : theme.colors.onSecondary }]}>
+						{title}
+					</Text>
 				)}
 			</TouchableOpacity>
 		</View>

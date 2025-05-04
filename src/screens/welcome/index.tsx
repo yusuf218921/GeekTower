@@ -12,12 +12,14 @@ import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { AuthStackParamList } from '../../navigation/types';
 import log from '../../utils/logger';
 import { SCREEN_ANIMATIONS } from '../../constants/theme';
+import { useTheme } from 'react-native-paper';
 
 type WelcomeNavProp = NativeStackNavigationProp<AuthStackParamList, 'Welcome'>;
 
 const WelcomeScreen = () => {
 	const { t } = useTranslation();
 	const navigation = useNavigation<WelcomeNavProp>();
+	const theme = useTheme();
 
 	useEffect(() => {
 		log.info('Welcome Sayfası Açıldı');
@@ -34,14 +36,14 @@ const WelcomeScreen = () => {
 	}, [navigation]);
 
 	return (
-		<SafeAreaView style={styles.area}>
+		<SafeAreaView style={[styles.area, { backgroundColor: theme.colors.background }]}>
 			<ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={styles.container}>
 				<View style={styles.header}>
 					<View style={styles.logoWrapper}>
 						<Image style={styles.logo} source={images.logo} />
 					</View>
-					<Text style={styles.title}>{t('welcome.title')}</Text>
-					<Text style={styles.subtitle}>{t('welcome.subtitle')}</Text>
+					<Text style={[styles.title, { color: theme.colors.onBackground }]}>{t('welcome.title')}</Text>
+					<Text style={[styles.subtitle, { color: theme.colors.onBackground }]}>{t('welcome.subtitle')}</Text>
 				</View>
 				<View style={styles.main}>
 					<Button title={t('welcome.button.login')} onPress={handleLoginButton} />
